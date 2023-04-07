@@ -14,6 +14,16 @@
       "text": "헬로",
       "checked": false,
       "id": 3
+    },
+    {
+      "text": "123",
+      "checked": false,
+      "id": 4
+    },
+    {
+      "text": "얍",
+      "checked": false,
+      "id": 6
     }
   ]
 }

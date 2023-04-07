@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Modal from '../components/modal';
 
 
 const TodoContainer = styled.div`
@@ -61,6 +62,10 @@ const TodoInput = styled.input`
     width: 300px;
 `
 
+const ButtoonContainer = styled.div`
+    display: flex
+`
+
 function Todo () {
     const [inputValue, setInputValue] = useState([])
     const [todos, setTodos] = useState([])
@@ -116,6 +121,11 @@ function Todo () {
             "text": inputValue,
             "checked": false
           }
+          if(inputValue.length === 0) {
+            alert('내용을 입력하세요')
+            // throw Error('내용이 없습니다')
+            navigate(0)
+        }
 
         setTimeout(() => {
             fetch(`http://localhost:3001/todos/`,{
@@ -124,8 +134,6 @@ function Todo () {
               Accept: "application/json"
             },
             method: "POST",
-            // 사용자 정보 같은 데이터를 보내줄 것 (=request body)
-            // javascript 값을 JSON 문자열로 변환해주는 메서드 
             body: JSON.stringify(patchData)
           })
             .then(res => {
@@ -146,7 +154,7 @@ function Todo () {
     return (
         <TodoContainer>
             <TodoTitle>
-                <TodoInput className="inputBox" type="text" value={inputValue} placeholder="MAKE TO DO" onChange={(event) => setInputValue(event.target.value)}/>
+                <TodoInput type="text" value={inputValue} placeholder="MAKE TO DO" onChange={(event) => setInputValue(event.target.value)}/>
                 <TodoButton onClick={todoSubmit}>+</TodoButton>
             </TodoTitle>
             <TodoList>
@@ -154,10 +162,10 @@ function Todo () {
                     <TodoItem key={todo.id}>
                         <input type="checkbox" ></input>
                         <div>{todo.text}</div>
-                        <div>
-                            <button>수정</button>
+                        <ButtoonContainer>
+                            <Modal id={todo.id} />
                             <button onClick={() => todoDelete(todo.id)}>삭제</button>
-                        </div>
+                        </ButtoonContainer>
                     </TodoItem>
                 ))}
             </TodoList>
