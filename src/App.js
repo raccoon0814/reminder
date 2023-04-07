@@ -5,11 +5,18 @@ import Nav from './components/nav';
 import Main from './components/main';
 import Dog from './components/dog';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
-  const [isLogin, setIsLogin] = useState(false)
+  const [isLogin, setIsLogin] = useState(() => {
+    const storedValue = localStorage.getItem('isLogin');
+    return storedValue ? JSON.parse(storedValue) : 0;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('isLogin', JSON.stringify(isLogin));
+  }, [isLogin]);
 
   return (
     <div className="App">
