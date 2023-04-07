@@ -50,7 +50,7 @@ function Login ({ isLogin, setIsLogin }) {
             <LoginImg />
             <span>{isLogin ? 'SEB_FE_43' : 'Welcome to'}</span>
             <LoginText>{isLogin ? '윤정훈' : 'CODE REMINDER'}</LoginText>
-            <span>{isLogin ? `어떤 데이터를 넣는게 좋을까.` : `Wake Me Up!`}</span>
+            <span>{isLogin ? `instagram: __________` : `Wake Me Up!`}</span>
             {isLogin ? <Link to="/"><LoginButton onClick={loginClick}>로그아웃</LoginButton></Link>
              : <Link to="/todo"><LoginButton onClick={loginClick}>게스트로 로그인</LoginButton></Link>}
             {/* <Link to="/todo"><LoginButton>게스트로 로그인</LoginButton></Link> */}

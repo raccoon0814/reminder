@@ -51,6 +51,12 @@ function Modal ({id}) {
 
   const todoUpdate = () => {
     let updateText = {"text" : fixValue}
+
+    if(fixValue.length === 0) {
+        alert('내용을 입력하세요')
+        // throw Error('내용이 없습니다')
+        navigate(0)
+    }
     setTimeout(() => {
         fetch(`http://localhost:3001/todos/${id}`,{
         headers: {

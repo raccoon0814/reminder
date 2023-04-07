@@ -17,7 +17,7 @@ const TodoContainer = styled.div`
 
 const TodoTitle = styled.div`
     width: 450px;
-    height: 90px;
+    height: 70px;
     border-radius: 25px;
     display: flex;
     align-items: center;
@@ -27,10 +27,8 @@ const TodoTitle = styled.div`
 `
 
 const TodoButton = styled.button`
-    width: 30px;
-    height: 30px;
-    background-color: rgba(36,19,15,0.5);
     border-radius: 25px;
+    font-size: large;
 `
 
 const TodoList = styled.ul`
@@ -56,7 +54,8 @@ const TodoItem = styled.li`
     display: flex;
     justify-content: space-around;
     align-items: center;
-`
+    background-color: ${(props) => (props.isChecked ? "tomato" : "none")};
+    `
 
 const TodoInput = styled.input`
     width: 300px;
@@ -69,6 +68,7 @@ const ButtoonContainer = styled.div`
 function Todo () {
     const [inputValue, setInputValue] = useState([])
     const [todos, setTodos] = useState([])
+    const [isChecked, setIsChecked] = useState(false)
 
     const navigate = useNavigate()
 
@@ -151,16 +151,20 @@ function Todo () {
         }, 500)
     }
 
+    const changeCheck = (id) => {
+        setIsChecked(isChecked)
+    }
+
     return (
         <TodoContainer>
             <TodoTitle>
                 <TodoInput type="text" value={inputValue} placeholder="MAKE TO DO" onChange={(event) => setInputValue(event.target.value)}/>
-                <TodoButton onClick={todoSubmit}>+</TodoButton>
+                <TodoButton onClick={todoSubmit}>추가</TodoButton>
             </TodoTitle>
             <TodoList>
                 {todos && todos.map((todo) => (
-                    <TodoItem key={todo.id}>
-                        <input type="checkbox" ></input>
+                    <TodoItem key={todo.id} isChecked={isChecked}>
+                        <input type="checkbox" onChange={() => changeCheck(todo.id)} isChecked={isChecked}></input>
                         <div>{todo.text}</div>
                         <ButtoonContainer>
                             <Modal id={todo.id} />

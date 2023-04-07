@@ -1,24 +1,29 @@
 {
   "todos": [
     {
-      "text": "하이용",
+      "text": "나루랑 산책 가기",
+      "checked": false,
+      "id": 1
+    },
+    {
+      "text": "민방위 연기 알아보기",
       "checked": false,
       "id": 2
     },
     {
-      "text": "헬로",
+      "text": "밥 올려놓고 청소기 돌리기",
       "checked": false,
       "id": 3
     },
     {
-      "text": "123",
+      "text": "축의금 현금 뽑아두기",
       "checked": false,
       "id": 4
     },
     {
-      "text": "얍",
+      "text": "6시 지나고 꼭 퇴실 누르기",
       "checked": false,
-      "id": 6
+      "id": 5
     }
   ]
 }
