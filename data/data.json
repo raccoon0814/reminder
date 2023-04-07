@@ -1,0 +1,19 @@
+{
+  "todos": [
+    {
+      "text": "반갑습니당",
+      "checked": false,
+      "id": 1
+    },
+    {
+      "text": "하이용",
+      "checked": false,
+      "id": 2
+    },
+    {
+      "text": "헬로",
+      "checked": false,
+      "id": 3
+    }
+  ]
+}

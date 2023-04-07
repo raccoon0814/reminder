@@ -1,8 +1,21 @@
+@font-face {
+  font-family: 'BMHANNAPro';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  }
+
+  *{
+    font-family: 'BMHANNAPro';
+  }
+
 .App {
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgba(70,70,70,0.5);
+  padding: 20px;
 }
 
 .App-logo {
